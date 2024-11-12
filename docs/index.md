@@ -42,5 +42,5 @@ export const TimelineEditor = () => {
 ```
 
 ## Props
-<API hideTitle src="../src/components/timeline.tsx"></API>
+<API hideTitle src="../src/components/timeline.tsx" id="1"></API>
 

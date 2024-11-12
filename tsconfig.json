@@ -4,7 +4,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
-    "jsx": "react",
+    "jsx": "react-jsx",  // 이 부분을 "react-jsx"로 수정
     "esModuleInterop": true,
     "sourceMap": true,
     "baseUrl": "./",
@@ -12,7 +12,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"],
-      "react": [ "./node_modules/@types/react"]
+      "react": ["./node_modules/@types/react"]
     },
     "allowSyntheticDefaultImports": true
   },
