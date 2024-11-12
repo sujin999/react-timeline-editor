@@ -31,3 +31,4 @@ export declare function useDragLine(): {
         scaleWidth: number;
     }) => number[];
 };
+//# sourceMappingURL=use_drag_line.d.ts.map

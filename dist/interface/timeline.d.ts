@@ -283,3 +283,4 @@ export interface TimelineEditor extends EditData {
      */
     onChange?: (editorData: TimelineRow[]) => void | boolean;
 }
+//# sourceMappingURL=timeline.d.ts.map

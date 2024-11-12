@@ -37,3 +37,4 @@ export interface TimeLineEffectSource {
     /** 在当前动作时间区域停止播放时回调 */
     stop?: (param: EffectSourceParam) => void;
 }
+//# sourceMappingURL=effect.d.ts.map

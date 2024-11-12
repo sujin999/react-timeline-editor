@@ -15,3 +15,4 @@ export type EditRowProps = CommonProp & {
     deltaScrollLeft: (scrollLeft: number) => void;
 };
 export declare const EditRow: FC<EditRowProps>;
+//# sourceMappingURL=edit_row.d.ts.map

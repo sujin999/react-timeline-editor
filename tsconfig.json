@@ -4,7 +4,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
-    "jsx": "react-jsx",  // 이 부분을 "react-jsx"로 수정
+    "jsx": "react-jsx",
     "esModuleInterop": true,
     "sourceMap": true,
     "baseUrl": "./",
@@ -14,8 +14,16 @@
       "@@/*": ["src/.umi/*"],
       "react": ["./node_modules/@types/react"]
     },
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationMap": true,
+    
+
   },
+  "include": [
+    "src/**/*.ts",               // TypeScript 파일 포함
+    "src/index.d.ts"             // 타입 선언 파일 포함
+  ],
   "exclude": [
     "node_modules",
     "lib",

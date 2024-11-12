@@ -14,3 +14,4 @@ export declare class Emitter<EventTypes> {
     off<K extends keyof EventTypes>(name: K, handler?: (args: EventTypes[K]) => boolean | unknown): void;
     offAll(): void;
 }
+//# sourceMappingURL=emitter.d.ts.map

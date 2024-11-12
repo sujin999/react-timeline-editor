@@ -51,3 +51,4 @@ export declare function parserActionsToPositions(actions: TimelineAction[], para
     scale: number;
     scaleWidth: number;
 }): number[];
+//# sourceMappingURL=deal_data.d.ts.map

@@ -45,3 +45,4 @@ export interface RowRndProps {
     adsorptionDistance?: number;
 }
 export {};
+//# sourceMappingURL=row_rnd_interface.d.ts.map

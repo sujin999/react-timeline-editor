@@ -31,3 +31,4 @@ export declare const EditArea: React.ForwardRefExoticComponent<CommonProp & {
     /** 设置scroll left */
     deltaScrollLeft: (scrollLeft: number) => void;
 } & React.RefAttributes<EditAreaState>>;
+//# sourceMappingURL=edit_area.d.ts.map
