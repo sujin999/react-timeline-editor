@@ -1715,9 +1715,6 @@ var Cursor = function Cursor(_ref) {
         })
       }), jsx("div", {
         className: prefix('cursor-area')
-      }), jsx("div", {
-        className: prefix('cursor-time'),
-        children: "Current Time: 1s"
       })]
     })
   });

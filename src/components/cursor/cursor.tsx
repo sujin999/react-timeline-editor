@@ -99,9 +99,6 @@ export const Cursor: FC<CursorProps> = ({
           />
         </svg>
         <div className={prefix('cursor-area')} />
-        <div className={prefix('cursor-time')}>
-          {`Current Time: 1s`} 
-        </div>
       </div>
     </RowDnd>
   );
