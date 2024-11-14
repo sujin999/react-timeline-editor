@@ -98,10 +98,11 @@ export const Cursor: FC<CursorProps> = ({
             fill="#5297FF"
           />
         </svg>
+       
+        <div className={prefix('cursor-area')}/>
         <div className={prefix('cursor-time')}>
           {cursorTime}
         </div>
-        <div className={prefix('cursor-area')}/>
       </div>
     </RowDnd>
   );
