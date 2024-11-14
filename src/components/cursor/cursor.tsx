@@ -98,9 +98,10 @@ export const Cursor: FC<CursorProps> = ({
             fill="#5297FF"
           />
         </svg>
-        <div className={prefix('cursor-area')}>
-          <span className={prefix('cursor-time')}>0:12</span>
+        <div className={prefix('cursor-time')}>
+          {cursorTime}
         </div>
+        <div className={prefix('cursor-area')}/>
       </div>
     </RowDnd>
   );

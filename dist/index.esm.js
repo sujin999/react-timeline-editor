@@ -1711,10 +1711,10 @@ var Cursor = function Cursor(_ref) {
     d: "M0 1C0 0.447715 0.447715 0 1 0H7C7.55228 0 8 0.447715 8 1V9.38197C8 9.76074 7.786 10.107 7.44721 10.2764L4.44721 11.7764C4.16569 11.9172 3.83431 11.9172 3.55279 11.7764L0.552786 10.2764C0.214002 10.107 0 9.76074 0 9.38197V1Z",
     fill: "#5297FF"
   })), /*#__PURE__*/React.createElement("div", {
-    className: prefix('cursor-area')
-  }, /*#__PURE__*/React.createElement("span", {
     className: prefix('cursor-time')
-  }, "0:12"))));
+  }, cursorTime), /*#__PURE__*/React.createElement("div", {
+    className: prefix('cursor-area')
+  })));
 };
 
 var css_248z$1 = ".timeline-editor-drag-line-container {\n  position: absolute;\n  height: 100%;\n  top: 0;\n  left: 0;\n}\n.timeline-editor-drag-line {\n  width: 0;\n  position: absolute;\n  top: 0;\n  height: 99%;\n  border-left: 1px dashed rgba(82, 151, 255, 0.6);\n}\n";
