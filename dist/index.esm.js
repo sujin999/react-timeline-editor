@@ -1724,7 +1724,7 @@ var Cursor = function Cursor(_ref) {
   // 드래그 상태일 때만 표시
   React.createElement("div", {
     className: prefix('cursor-time')
-  }, getScaleRender ? getScaleRender(cursorTime) : cursorTime))));
+  }, getScaleRender ? getScaleRender(parseFloat(cursorTime.toFixed(2))) : cursorTime.toFixed(2)))));
 };
 
 var css_248z$1 = ".timeline-editor-drag-line-container {\n  position: absolute;\n  height: 100%;\n  top: 0;\n  left: 0;\n}\n.timeline-editor-drag-line {\n  width: 0;\n  position: absolute;\n  top: 0;\n  height: 99%;\n  border-left: 1px dashed rgba(82, 151, 255, 0.6);\n}\n";
