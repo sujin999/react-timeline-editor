@@ -1638,9 +1638,14 @@ var Cursor = function Cursor(_ref) {
     deltaScrollLeft = _ref.deltaScrollLeft,
     onCursorDragStart = _ref.onCursorDragStart,
     onCursorDrag = _ref.onCursorDrag,
-    onCursorDragEnd = _ref.onCursorDragEnd;
+    onCursorDragEnd = _ref.onCursorDragEnd,
+    getScaleRender = _ref.getScaleRender;
   var rowRnd = React.useRef();
   var draggingLeft = React.useRef();
+  var _useState = React.useState(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    dragging = _useState2[0],
+    setDragging = _useState2[1]; // 드래그 상태 관리 
   React.useEffect(function () {
     if (typeof draggingLeft.current === 'undefined') {
       // 非dragging时，根据穿参更新cursor刻度
@@ -1670,6 +1675,7 @@ var Cursor = function Cursor(_ref) {
         scale: scale
       }) - scrollLeft;
       rowRnd.current.updateLeft(draggingLeft.current);
+      setDragging(true);
     },
     onDragEnd: function onDragEnd() {
       var time = parserPixelToTime(draggingLeft.current + scrollLeft, {
@@ -1682,6 +1688,7 @@ var Cursor = function Cursor(_ref) {
       });
       onCursorDragEnd && onCursorDragEnd(time);
       draggingLeft.current = undefined;
+      setDragging(false);
     },
     onDrag: function onDrag(_ref2) {
       var left = _ref2.left;
@@ -1720,10 +1727,13 @@ var Cursor = function Cursor(_ref) {
     d: "M0 1C0 0.447715 0.447715 0 1 0H7C7.55228 0 8 0.447715 8 1V9.38197C8 9.76074 7.786 10.107 7.44721 10.2764L4.44721 11.7764C4.16569 11.9172 3.83431 11.9172 3.55279 11.7764L0.552786 10.2764C0.214002 10.107 0 9.76074 0 9.38197V1Z",
     fill: "#5297FF"
   })), /*#__PURE__*/React__default['default'].createElement("div", {
-    className: prefix('cursor-time')
-  }, cursorTime), /*#__PURE__*/React__default['default'].createElement("div", {
     className: prefix('cursor-area')
-  })));
+  }), dragging && (
+  /*#__PURE__*/
+  // 드래그 상태일 때만 표시
+  React__default['default'].createElement("div", {
+    className: prefix('cursor-time')
+  }, getScaleRender ? getScaleRender(cursorTime) : cursorTime))));
 };
 
 var css_248z$1 = ".timeline-editor-drag-line-container {\n  position: absolute;\n  height: 100%;\n  top: 0;\n  left: 0;\n}\n.timeline-editor-drag-line {\n  width: 0;\n  position: absolute;\n  top: 0;\n  height: 99%;\n  border-left: 1px dashed rgba(82, 151, 255, 0.6);\n}\n";

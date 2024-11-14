@@ -37,9 +37,11 @@ export const Cursor: FC<CursorProps> = ({
   onCursorDragStart,
   onCursorDrag,
   onCursorDragEnd,
+  getScaleRender
 }) => {
   const rowRnd = useRef<RowRndApi>();
   const draggingLeft = useRef<undefined | number>();
+  const [dragging, setDragging] = useState(false); // 드래그 상태 관리 
 
   useEffect(() => {
     if (typeof draggingLeft.current === 'undefined') {
@@ -64,12 +66,14 @@ export const Cursor: FC<CursorProps> = ({
         onCursorDragStart && onCursorDragStart(cursorTime);
         draggingLeft.current = parserTimeToPixel(cursorTime, { startLeft, scaleWidth, scale }) - scrollLeft;
         rowRnd.current.updateLeft(draggingLeft.current);
+        setDragging(true);
       }}
       onDragEnd={() => {
         const time = parserPixelToTime(draggingLeft.current + scrollLeft, { startLeft, scale, scaleWidth });
         setCursor({ time });
         onCursorDragEnd && onCursorDragEnd(time);
         draggingLeft.current = undefined;
+        setDragging(false);
       }}
       onDrag={({ left }, scroll = 0) => {
         const scrollLeft = scrollSync.current.state.scrollLeft;
@@ -100,9 +104,11 @@ export const Cursor: FC<CursorProps> = ({
         </svg>
        
         <div className={prefix('cursor-area')}/>
-        <div className={prefix('cursor-time')}>
-          {cursorTime}
-        </div>
+        {dragging && (  // 드래그 상태일 때만 표시
+          <div className={prefix('cursor-time')}>
+            {getScaleRender ? getScaleRender(cursorTime) : cursorTime}
+          </div>
+        )}
       </div>
     </RowDnd>
   );
