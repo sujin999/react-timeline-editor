@@ -106,7 +106,7 @@ export const Cursor: FC<CursorProps> = ({
         <div className={prefix('cursor-area')}/>
         {dragging && (  // 드래그 상태일 때만 표시
           <div className={prefix('cursor-time')}>
-            {getScaleRender ? getScaleRender(parseFloat(cursorTime.toFixed(2))) : cursorTime.toFixed(2)}
+            {getScaleRender ? getScaleRender(cursorTime) : cursorTime}
           </div>
         )}
       </div>
