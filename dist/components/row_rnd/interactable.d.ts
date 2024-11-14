@@ -9,4 +9,3 @@ export declare const InteractComp: FC<{
     resizable: boolean;
     resizableOptions: ResizableOptions;
 }>;
-//# sourceMappingURL=interactable.d.ts.map

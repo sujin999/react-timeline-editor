@@ -32,9 +32,9 @@ const LocalesContainer: FC<{ children: ReactNode }> = (props) => {
     const localeMessages = messages[locale] || {};
 
     // append internal message, for use intl as string template util
-    localeMessages['$internal.edit.link'] = "https://github.com/xzdarcy/react-timeline-editor/edit/master/{filename}";
+    localeMessages['$internal.edit.link'] = "https://github.com/sujin999/react-timeline-editor/edit/master/{filename}";
 
-    localeMessages['$internal.api.sourceLink'] = "https://github.com/xzdarcy/react-timeline-editor/tree/master/{fileName}#L{line}";
+    localeMessages['$internal.api.sourceLink'] = "https://github.com/sujin999/react-timeline-editor/tree/master/{fileName}#L{line}";
 
     return createIntl({ locale, messages: localeMessages }, cache);
   }, []);

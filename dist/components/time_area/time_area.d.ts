@@ -16,4 +16,3 @@ export type TimeAreaProps = CommonProp & {
 };
 /** 动画时间轴组件 */
 export declare const TimeArea: FC<TimeAreaProps>;
-//# sourceMappingURL=time_area.d.ts.map

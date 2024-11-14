@@ -19,4 +19,3 @@ export type CursorProps = CommonProp & {
     scrollSync: React.MutableRefObject<ScrollSync>;
 };
 export declare const Cursor: FC<CursorProps>;
-//# sourceMappingURL=cursor.d.ts.map

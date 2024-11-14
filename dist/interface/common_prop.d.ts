@@ -10,4 +10,3 @@ export interface CommonProp extends EditData {
     /** 当前时间轴宽度 */
     timelineWidth: number;
 }
-//# sourceMappingURL=common_prop.d.ts.map

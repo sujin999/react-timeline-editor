@@ -1,1 +1,0 @@
-{"version":3,"file":"common_prop.d.ts","sourceRoot":"","sources":["../src/interface/common_prop.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,YAAY,CAAC;AAEtC,aAAa;AACb,MAAM,WAAW,UAAW,SAAQ,QAAQ;IAC1C,WAAW;IACX,UAAU,EAAE,MAAM,CAAC;IACnB,aAAa;IACb,aAAa,EAAE,CAAC,UAAU,EAAE,MAAM,KAAK,IAAI,CAAC;IAC5C,WAAW;IACX,UAAU,EAAE,MAAM,CAAC;IACnB,cAAc;IACd,aAAa,EAAE,MAAM,CAAC;CACvB"}

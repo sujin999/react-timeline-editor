@@ -42,4 +42,3 @@ export interface TimelineRow {
     /** 行的扩展类名 */
     classNames?: string[];
 }
-//# sourceMappingURL=action.d.ts.map

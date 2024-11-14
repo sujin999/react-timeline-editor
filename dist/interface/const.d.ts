@@ -24,4 +24,3 @@ export declare const ERROR: {
     START_TIME_LESS_THEN_ZERO: string;
     END_TIME_LESS_THEN_START_TIME: string;
 };
-//# sourceMappingURL=const.d.ts.map

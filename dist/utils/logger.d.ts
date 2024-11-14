@@ -130,4 +130,3 @@ export default class ConsoleLogger {
      */
     groupCollapsed(...label: any[]): void;
 }
-//# sourceMappingURL=logger.d.ts.map

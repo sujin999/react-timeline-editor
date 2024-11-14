@@ -123,4 +123,3 @@ export declare class TimelineEngine extends Emitter<EventTypes> implements ITime
     /** 处理数据 */
     private _dealData;
 }
-//# sourceMappingURL=engine.d.ts.map

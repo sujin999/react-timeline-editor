@@ -14,10 +14,10 @@ const entryExports = {
 };
 
 // Static content
-const pkg = {"name":"@xzdarcy/react-timeline-editor","version":"0.1.9","license":"MIT","repository":{"type":"git","url":"git+https://github.com/xzdarcy/react-timeline-editor.git"},"author":"xzdarcy"};
+const pkg = {"name":"@sujin999/react-timeline-editor","version":"0.1.10","license":"MIT","repository":{"type":"git","url":"git+https://github.com/sujin999/react-timeline-editor.git"},"author":"sujin999 (original author: xzdarcy)"};
 const historyType = "browser";
 const hostname = undefined;
-const themeConfig = {"footer":"Copyright © 2024 | Powered by <a href=\"https://d.umijs.org\" target=\"_blank\" rel=\"noreferrer\">dumi</a>","prefersColor":{"default":"light","switch":true},"nprogress":true,"lastUpdated":true,"sourceLink":"https://github.com/xzdarcy/react-timeline-editor/tree/master/{fileName}#L{line}","editLink":"https://github.com/xzdarcy/react-timeline-editor/edit/master/{filename}"};
+const themeConfig = {"footer":"Copyright © 2024 | Powered by <a href=\"https://d.umijs.org\" target=\"_blank\" rel=\"noreferrer\">dumi</a>","prefersColor":{"default":"light","switch":true},"nprogress":true,"lastUpdated":true,"sourceLink":"https://github.com/sujin999/react-timeline-editor/tree/master/{fileName}#L{line}","editLink":"https://github.com/sujin999/react-timeline-editor/edit/master/{filename}"};
 const _2_level_nav_available = true;
 
 export default function DumiContextWrapper() {

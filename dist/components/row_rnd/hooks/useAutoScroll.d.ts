@@ -5,4 +5,3 @@ export declare function useAutoScroll(target: React.MutableRefObject<HTMLDivElem
     dealResizeAutoScroll: (e: ResizeEvent, dir: "left" | "right", deltaScroll?: (delta: number) => void) => boolean;
     stopAutoScroll: () => void;
 };
-//# sourceMappingURL=useAutoScroll.d.ts.map

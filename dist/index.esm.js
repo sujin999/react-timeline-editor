@@ -1,5 +1,4 @@
-import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
-import React, { useRef, useEffect, cloneElement, useImperativeHandle, useState, useLayoutEffect, createElement } from 'react';
+import React, { useRef, useEffect, cloneElement, useImperativeHandle, useState, useLayoutEffect } from 'react';
 import { AutoSizer, Grid, ScrollSync } from 'react-virtualized';
 import { prefixNames } from 'framework-utils';
 import interact from 'interactjs';
@@ -1551,7 +1550,7 @@ var RowDnd = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
     });
   };
   //#endregion
-  return jsx(InteractComp, {
+  return /*#__PURE__*/React.createElement(InteractComp, {
     interactRef: interactable,
     draggable: enableDragging,
     resizable: enableResizing,
@@ -1576,14 +1575,13 @@ var RowDnd = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
       onmove: handleResize,
       onstart: handleResizeStart,
       onend: handleResizeStop
-    },
-    children: /*#__PURE__*/React.cloneElement(children, {
-      style: _objectSpread2(_objectSpread2({}, children.props.style || {}), {}, {
-        left: left,
-        width: width
-      })
+    }
+  }, /*#__PURE__*/React.cloneElement(children, {
+    style: _objectSpread2(_objectSpread2({}, children.props.style || {}), {}, {
+      left: left,
+      width: width
     })
-  });
+  }));
 });
 
 function styleInject(css, ref) {
@@ -1644,7 +1642,7 @@ var Cursor = function Cursor(_ref) {
       }) - scrollLeft);
     }
   }, [cursorTime, startLeft, scaleWidth, scale, scrollLeft]);
-  return jsx(RowDnd, {
+  return /*#__PURE__*/React.createElement(RowDnd, {
     start: startLeft,
     ref: rowRnd,
     parentRef: areaRef,
@@ -1700,24 +1698,23 @@ var Cursor = function Cursor(_ref) {
       });
       onCursorDrag && onCursorDrag(time);
       return false;
-    },
-    children: jsxs("div", {
-      className: prefix('cursor'),
-      children: [jsx("svg", {
-        className: prefix('cursor-top'),
-        width: "8",
-        height: "12",
-        viewBox: "0 0 8 12",
-        fill: "none",
-        children: jsx("path", {
-          d: "M0 1C0 0.447715 0.447715 0 1 0H7C7.55228 0 8 0.447715 8 1V9.38197C8 9.76074 7.786 10.107 7.44721 10.2764L4.44721 11.7764C4.16569 11.9172 3.83431 11.9172 3.55279 11.7764L0.552786 10.2764C0.214002 10.107 0 9.76074 0 9.38197V1Z",
-          fill: "#5297FF"
-        })
-      }), jsx("div", {
-        className: prefix('cursor-area')
-      })]
-    })
-  });
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: prefix('cursor')
+  }, /*#__PURE__*/React.createElement("svg", {
+    className: prefix('cursor-top'),
+    width: "8",
+    height: "12",
+    viewBox: "0 0 8 12",
+    fill: "none"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M0 1C0 0.447715 0.447715 0 1 0H7C7.55228 0 8 0.447715 8 1V9.38197C8 9.76074 7.786 10.107 7.44721 10.2764L4.44721 11.7764C4.16569 11.9172 3.83431 11.9172 3.55279 11.7764L0.552786 10.2764C0.214002 10.107 0 9.76074 0 9.38197V1Z",
+    fill: "#5297FF"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: prefix('cursor-area')
+  }, /*#__PURE__*/React.createElement("span", {
+    className: prefix('cursor-time')
+  }, "0:12"))));
 };
 
 var css_248z$1 = ".timeline-editor-drag-line-container {\n  position: absolute;\n  height: 100%;\n  top: 0;\n  left: 0;\n}\n.timeline-editor-drag-line {\n  width: 0;\n  position: absolute;\n  top: 0;\n  height: 99%;\n  border-left: 1px dashed rgba(82, 151, 255, 0.6);\n}\n";
@@ -1731,19 +1728,19 @@ var DragLines = function DragLines(_ref) {
     _ref$assistPositions = _ref.assistPositions,
     assistPositions = _ref$assistPositions === void 0 ? [] : _ref$assistPositions,
     scrollLeft = _ref.scrollLeft;
-  return jsx("div", {
-    className: prefix('drag-line-container'),
-    children: isMoving && movePositions.filter(function (item) {
-      return assistPositions.includes(item);
-    }).map(function (linePos, index) {
-      return jsx("div", {
-        className: prefix('drag-line'),
-        style: {
-          left: linePos - scrollLeft
-        }
-      }, index);
-    })
-  });
+  return /*#__PURE__*/React.createElement("div", {
+    className: prefix('drag-line-container')
+  }, isMoving && movePositions.filter(function (item) {
+    return assistPositions.includes(item);
+  }).map(function (linePos, index) {
+    return /*#__PURE__*/React.createElement("div", {
+      key: index,
+      className: prefix('drag-line'),
+      style: {
+        left: linePos - scrollLeft
+      }
+    });
+  }));
 };
 
 var css_248z$2 = ".timeline-editor:hover .timeline-editor-edit-area .ReactVirtualized__Grid::-webkit-scrollbar {\n  height: 4px;\n}\n.timeline-editor-edit-area {\n  flex: 1 1 auto;\n  margin-top: 10px;\n  overflow: hidden;\n  position: relative;\n}\n.timeline-editor-edit-area .ReactVirtualized__Grid {\n  outline: none !important;\n  overflow: overlay !important;\n}\n.timeline-editor-edit-area .ReactVirtualized__Grid::-webkit-scrollbar {\n  width: 0;\n  height: 0;\n}\n.timeline-editor-edit-area .ReactVirtualized__Grid::-webkit-scrollbar-track {\n  background-color: transparent !important;\n}\n.timeline-editor-edit-area .ReactVirtualized__Grid::-webkit-scrollbar-thumb {\n  background: #313132;\n  border-radius: 16px;\n}\n";
@@ -2003,7 +2000,7 @@ var EditAction = function EditAction(_ref) {
   if (row.actions.includes(action)) {
     nowRow.actions[row.actions.indexOf(action)] = nowAction;
   }
-  return jsx(RowDnd, {
+  return /*#__PURE__*/React.createElement(RowDnd, {
     ref: rowRnd,
     parentRef: areaRef,
     start: startLeft,
@@ -2028,61 +2025,59 @@ var EditAction = function EditAction(_ref) {
     onResizeStart: handleResizeStart,
     onResize: handleResizing,
     onResizeEnd: handleResizeEnd,
-    deltaScrollLeft: deltaScrollLeft,
-    children: jsxs("div", {
-      onMouseDown: function onMouseDown() {
-        isDragWhenClick.current = false;
-      },
-      onClick: function onClick(e) {
-        var time;
-        if (onClickAction) {
-          time = handleTime(e);
-          onClickAction(e, {
-            row: row,
-            action: action,
-            time: time
-          });
-        }
-        if (!isDragWhenClick.current && onClickActionOnly) {
-          if (!time) time = handleTime(e);
-          onClickActionOnly(e, {
-            row: row,
-            action: action,
-            time: time
-          });
-        }
-      },
-      onDoubleClick: function onDoubleClick(e) {
-        if (onDoubleClickAction) {
-          var time = handleTime(e);
-          onDoubleClickAction(e, {
-            row: row,
-            action: action,
-            time: time
-          });
-        }
-      },
-      onContextMenu: function onContextMenu(e) {
-        if (onContextMenuAction) {
-          var time = handleTime(e);
-          onContextMenuAction(e, {
-            row: row,
-            action: action,
-            time: time
-          });
-        }
-      },
-      className: prefix((classNames || []).join(' ')),
-      style: {
-        height: rowHeight
-      },
-      children: [getActionRender && getActionRender(nowAction, nowRow), flexible && jsx("div", {
-        className: prefix('action-left-stretch')
-      }), flexible && jsx("div", {
-        className: prefix('action-right-stretch')
-      })]
-    })
-  });
+    deltaScrollLeft: deltaScrollLeft
+  }, /*#__PURE__*/React.createElement("div", {
+    onMouseDown: function onMouseDown() {
+      isDragWhenClick.current = false;
+    },
+    onClick: function onClick(e) {
+      var time;
+      if (onClickAction) {
+        time = handleTime(e);
+        onClickAction(e, {
+          row: row,
+          action: action,
+          time: time
+        });
+      }
+      if (!isDragWhenClick.current && onClickActionOnly) {
+        if (!time) time = handleTime(e);
+        onClickActionOnly(e, {
+          row: row,
+          action: action,
+          time: time
+        });
+      }
+    },
+    onDoubleClick: function onDoubleClick(e) {
+      if (onDoubleClickAction) {
+        var time = handleTime(e);
+        onDoubleClickAction(e, {
+          row: row,
+          action: action,
+          time: time
+        });
+      }
+    },
+    onContextMenu: function onContextMenu(e) {
+      if (onContextMenuAction) {
+        var time = handleTime(e);
+        onContextMenuAction(e, {
+          row: row,
+          action: action,
+          time: time
+        });
+      }
+    },
+    className: prefix((classNames || []).join(' ')),
+    style: {
+      height: rowHeight
+    }
+  }, getActionRender && getActionRender(nowAction, nowRow), flexible && /*#__PURE__*/React.createElement("div", {
+    className: prefix('action-left-stretch')
+  }), flexible && /*#__PURE__*/React.createElement("div", {
+    className: prefix('action-right-stretch')
+  })));
 };
 
 var css_248z$4 = ".timeline-editor-edit-row {\n  background-repeat: no-repeat, repeat;\n  background-image: linear-gradient(#191b1d, #191b1d), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 0);\n  display: flex;\n  flex-direction: row;\n  box-sizing: border-box;\n}\n";
@@ -2114,7 +2109,7 @@ var EditRow = function EditRow(props) {
     });
     return time;
   };
-  return jsx("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "".concat(prefix.apply(void 0, classNames), " ").concat(((rowData === null || rowData === void 0 ? void 0 : rowData.classNames) || []).join(' ')),
     style: style,
     onClick: function onClick(e) {
@@ -2143,15 +2138,16 @@ var EditRow = function EditRow(props) {
           time: time
         });
       }
-    },
-    children: ((rowData === null || rowData === void 0 ? void 0 : rowData.actions) || []).map(function (action) {
-      return jsx(EditAction, _objectSpread2(_objectSpread2({}, props), {}, {
-        handleTime: handleTime,
-        row: rowData,
-        action: action
-      }), action.id);
-    })
-  });
+    }
+  }, ((rowData === null || rowData === void 0 ? void 0 : rowData.actions) || []).map(function (action) {
+    return /*#__PURE__*/React.createElement(EditAction, _objectSpread2(_objectSpread2({
+      key: action.id
+    }, props), {}, {
+      handleTime: handleTime,
+      row: rowData,
+      action: action
+    }));
+  }));
 };
 
 function useDragLine() {
@@ -2344,7 +2340,7 @@ var EditArea = /*#__PURE__*/React.forwardRef(function (props, ref) {
       key = _ref.key,
       style = _ref.style;
     var row = editorData[rowIndex]; // 行数据
-    return /*#__PURE__*/createElement(EditRow, _objectSpread2(_objectSpread2({}, props), {}, {
+    return /*#__PURE__*/React.createElement(EditRow, _objectSpread2(_objectSpread2({}, props), {}, {
       style: _objectSpread2(_objectSpread2({}, style), {}, {
         backgroundPositionX: "0, ".concat(startLeft, "px"),
         backgroundSize: "".concat(startLeft, "px, ").concat(scaleWidth, "px")
@@ -2390,56 +2386,53 @@ var EditArea = /*#__PURE__*/React.forwardRef(function (props, ref) {
   useEffect(function () {
     gridRef.current.recomputeGridSize();
   }, [editorData]);
-  return jsxs("div", {
+  return /*#__PURE__*/React.createElement("div", {
     ref: editAreaRef,
-    className: prefix('edit-area'),
-    children: [jsx(AutoSizer, {
-      children: function children(_ref2) {
-        var width = _ref2.width,
-          height = _ref2.height;
-        // 获取全部高度
-        var totalHeight = 0;
-        // 高度列表
-        var heights = editorData.map(function (row) {
-          var itemHeight = row.rowHeight || _rowHeight;
-          totalHeight += itemHeight;
-          return itemHeight;
-        });
-        if (totalHeight < height) {
-          heights.push(height - totalHeight);
-          if (heightRef.current !== height && heightRef.current >= 0) {
-            setTimeout(function () {
-              var _gridRef$current2;
-              return (_gridRef$current2 = gridRef.current) === null || _gridRef$current2 === void 0 ? void 0 : _gridRef$current2.recomputeGridSize({
-                rowIndex: heights.length - 1
-              });
-            });
-          }
-        }
-        heightRef.current = height;
-        return jsx(Grid, {
-          columnCount: 1,
-          rowCount: heights.length,
-          ref: gridRef,
-          cellRenderer: cellRenderer,
-          columnWidth: Math.max(scaleCount * scaleWidth + startLeft, width),
-          width: width,
-          height: height,
-          rowHeight: function rowHeight(_ref3) {
-            var index = _ref3.index;
-            return heights[index] || _rowHeight;
-          },
-          overscanRowCount: 10,
-          overscanColumnCount: 0,
-          onScroll: function onScroll(param) {
-            _onScroll(param);
-          }
+    className: prefix('edit-area')
+  }, /*#__PURE__*/React.createElement(AutoSizer, null, function (_ref2) {
+    var width = _ref2.width,
+      height = _ref2.height;
+    // 获取全部高度
+    var totalHeight = 0;
+    // 高度列表
+    var heights = editorData.map(function (row) {
+      var itemHeight = row.rowHeight || _rowHeight;
+      totalHeight += itemHeight;
+      return itemHeight;
+    });
+    if (totalHeight < height) {
+      heights.push(height - totalHeight);
+      if (heightRef.current !== height && heightRef.current >= 0) {
+        setTimeout(function () {
+          var _gridRef$current2;
+          return (_gridRef$current2 = gridRef.current) === null || _gridRef$current2 === void 0 ? void 0 : _gridRef$current2.recomputeGridSize({
+            rowIndex: heights.length - 1
+          });
         });
       }
-    }), dragLine && jsx(DragLines, _objectSpread2({
-      scrollLeft: scrollLeft
-    }, dragLineData))]
-  });
+    }
+    heightRef.current = height;
+    return /*#__PURE__*/React.createElement(Grid, {
+      columnCount: 1,
+      rowCount: heights.length,
+      ref: gridRef,
+      cellRenderer: cellRenderer,
+      columnWidth: Math.max(scaleCount * scaleWidth + startLeft, width),
+      width: width,
+      height: height,
+      rowHeight: function rowHeight(_ref3) {
+        var index = _ref3.index;
+        return heights[index] || _rowHeight;
+      },
+      overscanRowCount: 10,
+      overscanColumnCount: 0,
+      onScroll: function onScroll(param) {
+        _onScroll(param);
+      }
+    });
+  }), dragLine && /*#__PURE__*/React.createElement(DragLines, _objectSpread2({
+    scrollLeft: scrollLeft
+  }, dragLineData)));
 });
 
 var css_248z$5 = ".timeline-editor {\n  height: 600px;\n  width: 600px;\n  min-height: 32px;\n  position: relative;\n  font-size: 12px;\n  font-family: \"PingFang SC\";\n  background-color: #191b1d;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n";
@@ -2473,14 +2466,13 @@ var TimeArea = function TimeArea(_ref) {
     var classNames = ['time-unit'];
     if (isShowScale) classNames.push('time-unit-big');
     var item = (showUnit ? columnIndex / scaleSplitCount : columnIndex) * scale;
-    return jsx("div", {
+    return /*#__PURE__*/React.createElement("div", {
+      key: key,
       style: style,
-      className: prefix.apply(void 0, classNames),
-      children: isShowScale && jsx("div", {
-        className: prefix('time-unit-scale'),
-        children: getScaleRender ? getScaleRender(item) : item
-      })
-    }, key);
+      className: prefix.apply(void 0, classNames)
+    }, isShowScale && /*#__PURE__*/React.createElement("div", {
+      className: prefix('time-unit-scale')
+    }, getScaleRender ? getScaleRender(item) : item));
   };
   useEffect(function () {
     var _gridRef$current;
@@ -2498,54 +2490,49 @@ var TimeArea = function TimeArea(_ref) {
   var estColumnWidth = getColumnWidth({
     index: 1
   });
-  return jsx("div", {
-    className: prefix('time-area'),
-    children: jsx(AutoSizer, {
-      children: function children(_ref3) {
-        var width = _ref3.width,
-          height = _ref3.height;
-        return jsxs(Fragment, {
-          children: [jsx(Grid, {
-            ref: gridRef,
-            columnCount: showUnit ? scaleCount * scaleSplitCount + 1 : scaleCount,
-            columnWidth: getColumnWidth,
-            estimatedColumnSize: estColumnWidth,
-            rowCount: 1,
-            rowHeight: height,
-            width: width,
-            height: height,
-            overscanRowCount: 0,
-            overscanColumnCount: 10,
-            cellRenderer: cellRenderer,
-            scrollLeft: scrollLeft
-          }), jsx("div", {
-            style: {
-              width: width,
-              height: height
-            },
-            onClick: function onClick(e) {
-              if (hideCursor) return;
-              var rect = e.currentTarget.getBoundingClientRect();
-              var position = e.clientX - rect.x;
-              var left = Math.max(position + scrollLeft, startLeft);
-              if (left > maxScaleCount * scaleWidth + startLeft - scrollLeft) return;
-              var time = parserPixelToTime(left, {
-                startLeft: startLeft,
-                scale: scale,
-                scaleWidth: scaleWidth
-              });
-              var result = onClickTimeArea && onClickTimeArea(time, e);
-              if (result === false) return; // 返回false时阻止设置时间
-              setCursor({
-                time: time
-              });
-            },
-            className: prefix('time-area-interact')
-          })]
+  return /*#__PURE__*/React.createElement("div", {
+    className: prefix('time-area')
+  }, /*#__PURE__*/React.createElement(AutoSizer, null, function (_ref3) {
+    var width = _ref3.width,
+      height = _ref3.height;
+    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Grid, {
+      ref: gridRef,
+      columnCount: showUnit ? scaleCount * scaleSplitCount + 1 : scaleCount,
+      columnWidth: getColumnWidth,
+      estimatedColumnSize: estColumnWidth,
+      rowCount: 1,
+      rowHeight: height,
+      width: width,
+      height: height,
+      overscanRowCount: 0,
+      overscanColumnCount: 10,
+      cellRenderer: cellRenderer,
+      scrollLeft: scrollLeft
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: width,
+        height: height
+      },
+      onClick: function onClick(e) {
+        if (hideCursor) return;
+        var rect = e.currentTarget.getBoundingClientRect();
+        var position = e.clientX - rect.x;
+        var left = Math.max(position + scrollLeft, startLeft);
+        if (left > maxScaleCount * scaleWidth + startLeft - scrollLeft) return;
+        var time = parserPixelToTime(left, {
+          startLeft: startLeft,
+          scale: scale,
+          scaleWidth: scaleWidth
         });
-      }
-    })
-  });
+        var result = onClickTimeArea && onClickTimeArea(time, e);
+        if (result === false) return; // 返回false时阻止设置时间
+        setCursor({
+          time: time
+        });
+      },
+      className: prefix('time-area-interact')
+    }));
+  }));
 };
 
 var Timeline = /*#__PURE__*/React.forwardRef(function (props, ref) {
@@ -2739,62 +2726,58 @@ var Timeline = /*#__PURE__*/React.forwardRef(function (props, ref) {
       };
     }
   }, []);
-  return jsx("div", {
+  return /*#__PURE__*/React.createElement("div", {
     ref: domRef,
     style: style,
-    className: "".concat(PREFIX, " ").concat(disableDrag ? PREFIX + '-disable' : ''),
-    children: jsx(ScrollSync, {
-      ref: scrollSync,
-      children: function children(_ref2) {
-        var scrollLeft = _ref2.scrollLeft,
-          scrollTop = _ref2.scrollTop,
-          _onScroll = _ref2.onScroll;
-        return jsxs(Fragment, {
-          children: [jsx(TimeArea, _objectSpread2(_objectSpread2({}, checkedProps), {}, {
-            timelineWidth: width,
-            disableDrag: disableDrag || isPlaying,
-            setCursor: handleSetCursor,
-            cursorTime: cursorTime,
-            editorData: editorData,
-            scaleCount: scaleCount,
-            setScaleCount: handleSetScaleCount,
-            onScroll: _onScroll,
-            scrollLeft: scrollLeft
-          })), jsx(EditArea, _objectSpread2(_objectSpread2({}, checkedProps), {}, {
-            timelineWidth: width,
-            ref: function ref(_ref3) {
-              return areaRef.current = _ref3 === null || _ref3 === void 0 ? void 0 : _ref3.domRef.current;
-            },
-            disableDrag: disableDrag || isPlaying,
-            editorData: editorData,
-            cursorTime: cursorTime,
-            scaleCount: scaleCount,
-            setScaleCount: handleSetScaleCount,
-            scrollTop: scrollTop,
-            scrollLeft: scrollLeft,
-            setEditorData: handleEditorDataChange,
-            deltaScrollLeft: autoScroll && handleDeltaScrollLeft,
-            onScroll: function onScroll(params) {
-              _onScroll(params);
-              onScrollVertical && onScrollVertical(params);
-            }
-          })), !hideCursor && jsx(Cursor, _objectSpread2(_objectSpread2({}, checkedProps), {}, {
-            timelineWidth: width,
-            disableDrag: isPlaying,
-            scrollLeft: scrollLeft,
-            scaleCount: scaleCount,
-            setScaleCount: handleSetScaleCount,
-            setCursor: handleSetCursor,
-            cursorTime: cursorTime,
-            editorData: editorData,
-            areaRef: areaRef,
-            scrollSync: scrollSync,
-            deltaScrollLeft: autoScroll && handleDeltaScrollLeft
-          }))]
-        });
+    className: "".concat(PREFIX, " ").concat(disableDrag ? PREFIX + '-disable' : '')
+  }, /*#__PURE__*/React.createElement(ScrollSync, {
+    ref: scrollSync
+  }, function (_ref2) {
+    var scrollLeft = _ref2.scrollLeft,
+      scrollTop = _ref2.scrollTop,
+      _onScroll = _ref2.onScroll;
+    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(TimeArea, _objectSpread2(_objectSpread2({}, checkedProps), {}, {
+      timelineWidth: width,
+      disableDrag: disableDrag || isPlaying,
+      setCursor: handleSetCursor,
+      cursorTime: cursorTime,
+      editorData: editorData,
+      scaleCount: scaleCount,
+      setScaleCount: handleSetScaleCount,
+      onScroll: _onScroll,
+      scrollLeft: scrollLeft
+    })), /*#__PURE__*/React.createElement(EditArea, _objectSpread2(_objectSpread2({}, checkedProps), {}, {
+      timelineWidth: width,
+      ref: function ref(_ref3) {
+        return areaRef.current = _ref3 === null || _ref3 === void 0 ? void 0 : _ref3.domRef.current;
+      },
+      disableDrag: disableDrag || isPlaying,
+      editorData: editorData,
+      cursorTime: cursorTime,
+      scaleCount: scaleCount,
+      setScaleCount: handleSetScaleCount,
+      scrollTop: scrollTop,
+      scrollLeft: scrollLeft,
+      setEditorData: handleEditorDataChange,
+      deltaScrollLeft: autoScroll && handleDeltaScrollLeft,
+      onScroll: function onScroll(params) {
+        _onScroll(params);
+        onScrollVertical && onScrollVertical(params);
       }
-    })
-  });
+    })), !hideCursor && (/*#__PURE__*/React.createElement(Cursor, _objectSpread2(_objectSpread2({}, checkedProps), {}, {
+      timelineWidth: width,
+      disableDrag: isPlaying,
+      scrollLeft: scrollLeft,
+      scaleCount: scaleCount,
+      setScaleCount: handleSetScaleCount,
+      setCursor: handleSetCursor,
+      cursorTime: cursorTime,
+      editorData: editorData,
+      areaRef: areaRef,
+      scrollSync: scrollSync,
+      deltaScrollLeft: autoScroll && handleDeltaScrollLeft
+    }))));
+  }));
 });
 
 export { Timeline, TimelineEngine };

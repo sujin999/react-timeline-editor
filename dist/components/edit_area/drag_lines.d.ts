@@ -10,4 +10,3 @@ export type DragLineProps = DragLineData & {
 };
 /** 拖拽辅助线 */
 export declare const DragLines: FC<DragLineProps>;
-//# sourceMappingURL=drag_lines.d.ts.map

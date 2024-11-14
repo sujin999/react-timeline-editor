@@ -14,4 +14,3 @@ export type EditActionProps = CommonProp & {
     deltaScrollLeft?: (delta: number) => void;
 };
 export declare const EditAction: FC<EditActionProps>;
-//# sourceMappingURL=edit_action.d.ts.map
